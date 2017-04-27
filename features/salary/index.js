@@ -21,13 +21,16 @@ const SalaryByDept = (d) => {
   return deptsSalaries
 }
 
-const Salaries = (data) => (
-  <div className="salary">
-    Total avg salary: ${Salary(data)}
-    {Object.values(SalaryByDept(data)).map(sal => (
-      <div>{sal}</div>
+const Salaries = ({ data }) => {
+  const total = Salary(data)
+  const byDept = SalaryByDept(data)
+
+  return (<div className="salary">
+    Total avg salary: ${total}
+    {Object.keys(byDept).map(dept => (
+      <div key={dept}>{dept}: {byDept[dept]}</div>
     ))}
-  </div>
-)
+  </div>)
+}
 
 export default Salaries
