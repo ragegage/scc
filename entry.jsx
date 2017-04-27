@@ -17,6 +17,12 @@ class App extends React.Component {
       this.setState({selected: name})
     }
   }
+
+  filter(data) {
+    if(this.state.selected)
+      return data.filter(em => em.dept === this.state.selected)
+    return data
+  }
   
   render() {
     console.log(this.depts)
@@ -25,7 +31,7 @@ class App extends React.Component {
       <div className="react-app">
         react working
         <Salaries data={data} />
-        <Employees data={data} />
+        <Employees data={this.filter(data)} />
         {this.depts.map(dept => (
           <button onClick={this.changeDept(dept)}>{dept}</button>
         ))}
