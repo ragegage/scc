@@ -4,7 +4,8 @@ import data from './data/'
 import Salaries from './features/salary/'
 
 const employeeChart = (d) => {
-
+  sorted = d.sort((emA, emB) => emA.date - emB.date)
+  
 }
 
 const App = () => (
