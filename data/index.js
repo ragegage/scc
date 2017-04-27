@@ -1,3 +1,5 @@
+// from https://rawgit.com/howespt/2e463579357415e299452aaf8897f973/raw/9aace3355b6e862908172fb360693666bf7b2521/example_data.json
+
 export default [{date: '2017-03-01', dept: 'Sales', employee: 3, salary: 70000},
  {date: '2015-03-01', dept: 'Engineering', employee: 4, salary: 45000},
  {date: '2017-09-01', dept: 'Sales', employee: 4, salary: 60000},
