@@ -8,8 +8,6 @@ const Salary = (d) => {
 }
 
 const SalaryByDept = (d) => {
-  // makes array of unique depts by putting them into a Set
-  // const depts = [...new Set(d.map(em => em.dept))]
   const deptsLists = {}
   d.forEach(em => {
     if (!deptsLists[em.dept])
