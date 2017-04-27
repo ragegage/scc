@@ -25,8 +25,6 @@ class App extends React.Component {
   }
   
   render() {
-    console.log(this.depts)
-    console.log(this.state.selected)
     return (
       <div className="react-app">
         react working
