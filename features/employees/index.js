@@ -8,6 +8,8 @@ const employeeChart = (d) => {
 export default ({ data }) => (
   <div className="chart">
     # employees vs. time
-    <V.VictoryArea data={employeeChart(data)} />
+    <V.VictoryChart>
+      <V.VictoryArea data={employeeChart(data)} />
+    </V.VictoryChart>
   </div>
 )
