@@ -10,3 +10,18 @@ export const avgSalaries = (employeeList) => (
     {dept: datum.dept, salary: avgSalary(datum.employees)}
   ))
 )
+
+const toYear = (date) => (
+  Date.parse(date) / (3.1536 * Math.pow(10, 10)) + 1970
+)
+
+export const employeesByDate = (d) => {
+  return d.map(em => em.date)
+          .sort()
+          .map((date, count) => ({
+            date: toYear(date),
+            employeeCount: count + 1
+          }))
+          .concat({date: 2018, employeeCount: d.length})
+        // ^ hack to make them all end at the same point in time (2018)
+}

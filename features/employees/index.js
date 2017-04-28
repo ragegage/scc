@@ -1,21 +1,7 @@
 import React from 'react'
 import * as V from 'victory'
 import COLORS from '../../assets/colors.js'
-
-const employeeChart = (d) => {
-  return d.map(em => em.date)
-          .sort()
-          .map((date, count) => ({
-            date: toYear(date),
-            employeeCount: count + 1
-          }))
-          .concat({date: 2018, employeeCount: d.length})
-        // ^ hack to make them all end at the same point in time (2018)
-}
-
-const toYear = (date) => (
-  Date.parse(date) / (3.1536 * Math.pow(10, 10)) + 1970
-)
+import * as Util from '../../assets/util.js'
 
 export default ({ data }) => (
   <div className="employees">
@@ -28,7 +14,7 @@ export default ({ data }) => (
       />
       <V.VictoryArea
         interpolation="stepAfter"
-        data={employeeChart(data.employees)}
+        data={Util.employeesByDate(data.employees)}
         style={{data: {fill: `${COLORS[data.dept]}`}}}
         x="date"
         y="employeeCount"
