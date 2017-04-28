@@ -20,7 +20,7 @@ const toYear = (date) => (
 
 export default ({ data }) => {
   return (
-  <div className="chart">
+  <div className="employees">
     # employees vs. time
     <V.VictoryChart>
       <V.VictoryArea

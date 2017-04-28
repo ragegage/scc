@@ -42,10 +42,12 @@ class App extends React.Component {
         react working
         <Salaries data={this.dataByDept} />
         <Employees data={this.filter(this.dataByDept)} />
-        {this.depts.map(dept => (
-          <button onClick={this.changeDept(dept)}>{dept}</button>
-        ))}
-        <button onClick={this.changeDept()}>All</button>
+        <div className="buttons">
+          <button onClick={this.changeDept()}>All</button>
+          {this.depts.map(dept => (
+            <button onClick={this.changeDept(dept)}>{dept}</button>
+          ))}
+        </div>
       </div>
     )
   }
