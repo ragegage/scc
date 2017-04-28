@@ -25,11 +25,12 @@ button {
 svg {
   width: 600px !important;
   height: 400px !important;
+  margin-top: -70px;
 }
 
 h1 {
   font-size: 42px;
   color: #828A8B;
   margin: 0;
-  margin-bottom: -70px;
+  text-align: center;
 }
