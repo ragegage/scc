@@ -14,7 +14,7 @@ const toYear = (date) => (
 
 export default ({ data }) => (
   <div className="employees">
-    <h1># employees vs. time</h1>
+    <h1># Employees over time</h1>
     <V.VictoryChart>
       <V.VictoryArea
         interpolation="stepAfter"
