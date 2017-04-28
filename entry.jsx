@@ -7,8 +7,8 @@ import Employees from './features/employees/'
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {selected: undefined}
-    this.depts = [...new Set(data.map(em => em.dept))]
+    this.state = {selected: "Total"}
+    this.depts = ["Total", ...new Set(data.map(em => em.dept))]
     this.dataByDept = App.byDept(data)
   }
 
@@ -31,9 +31,7 @@ class App extends React.Component {
   }
 
   filter(data) {
-    if(this.state.selected)
-      return data[this.state.selected]
-    return data.Total
+    return data[this.state.selected]
   }
 
   render() {
@@ -42,9 +40,11 @@ class App extends React.Component {
         <Salaries data={this.dataByDept} />
         <Employees data={this.filter(this.dataByDept)} />
         <div className="buttons">
-          <button onClick={this.changeDept()}>All</button>
           {this.depts.map(dept => (
-            <button onClick={this.changeDept(dept)}>{dept}</button>
+            <button
+              className={this.state.selected === dept ? "selected" : ""}
+              onClick={this.changeDept(dept)}
+              >{dept}</button>
           ))}
         </div>
       </div>
