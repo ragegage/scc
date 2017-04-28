@@ -1,4 +1,4 @@
-clean up components (pull extra functions out into utilities?)
 write some basic tests
   - integration test that calls render on App
-  - test some other important pieces of code
+  - test util functions?
+  - test the switch from one employee chart to another
