@@ -3,13 +3,14 @@ import React from 'react'
 import data from './data/'
 import Salaries from './features/salary/'
 import Employees from './features/employees/'
+import * as Util from './assets/util.js'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {selected: "Total"}
     this.depts = ["Total", ...new Set(data.map(em => em.dept))]
-    this.dataByDept = App.byDept(data)
+    this.dataByDept = Util.byDept(data)
   }
 
   changeDept(name) {
@@ -17,17 +18,6 @@ class App extends React.Component {
       e.preventDefault()
       this.setState({selected: name})
     }
-  }
-
-  static byDept(data) {
-    const deptsLists = {Total: {dept: "Total", employees: []}}
-    data.forEach(em => {
-      if (!deptsLists[em.dept])
-        deptsLists[em.dept] = {dept: em.dept, employees: []}
-      deptsLists[em.dept].employees.push(em)
-      deptsLists["Total"].employees.push(em)
-    })
-    return deptsLists
   }
 
   filter(data) {
@@ -57,8 +47,3 @@ class App extends React.Component {
 document.addEventListener("DOMContentLoaded", () => {
   render(<App />, document.getElementById("app"))
 })
-
-// yellow: EEC431
-// blue: 2B94EE
-// purple: 9852EB
-// orange: E78C2F

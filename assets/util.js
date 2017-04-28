@@ -1,3 +1,14 @@
+export const byDept = (data) => {
+  const deptsLists = {Total: {dept: "Total", employees: []}}
+  data.forEach(em => {
+    if (!deptsLists[em.dept])
+      deptsLists[em.dept] = {dept: em.dept, employees: []}
+    deptsLists[em.dept].employees.push(em)
+    deptsLists["Total"].employees.push(em)
+  })
+  return deptsLists
+}
+
 const avgSalary = (employeeList) => {
   const salaries = employeeList.map(em => em.salary)
   const salaryCount = salaries.length
