@@ -1,19 +1,7 @@
 import React from 'react'
 import * as V from 'victory'
 import COLORS from '../../assets/colors.js'
-
-const avgSalary = (employeeList) => {
-  const salaries = employeeList.map(em => em.salary)
-  const salaryCount = salaries.length
-  const totalSalary = salaries.reduce((a, s) => a + s)
-  return Math.round(totalSalary / salaryCount * 100) / 100
-}
-
-const avgSalaries = (employeeList) => (
-  Object.values(employeeList).map(datum => (
-    {dept: datum.dept, salary: avgSalary(datum.employees)}
-  ))
-)
+import * as Util from '../../assets/util.js'
 
 const Salaries = ({ data }) => (
   <div className="salary">
@@ -34,7 +22,7 @@ const Salaries = ({ data }) => (
         style={{
           data: {fill: (d) => COLORS[d.x]}
         }}
-        data={avgSalaries(data)}
+        data={Util.avgSalaries(data)}
         x="dept"
         y="salary"
       />
