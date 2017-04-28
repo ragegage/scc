@@ -16,7 +16,7 @@ const Salaries = ({ data }) => {
 
   return (
     <div className="salary">
-      <h1>Average salaries by dept</h1
+      <h1>Average salaries by dept</h1>
       <V.VictoryChart domainPadding={40}>
         <V.VictoryAxis
           dependentAxis
