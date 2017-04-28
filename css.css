@@ -30,4 +30,6 @@ svg {
 h1 {
   font-size: 42px;
   color: #828A8B;
+  margin: 0;
+  margin-bottom: -70px;
 }
