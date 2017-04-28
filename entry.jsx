@@ -37,8 +37,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="react-app">
+        <h1>Average salaries by dept</h1>
         <Salaries data={this.dataByDept} />
-        <Employees data={this.filter(this.dataByDept)} />
+        <h1># Employees over time</h1>
         <div className="buttons">
           {this.depts.map(dept => (
             <button
@@ -47,6 +48,7 @@ class App extends React.Component {
               >{dept}</button>
           ))}
         </div>
+        <Employees data={this.filter(this.dataByDept)} />
       </div>
     )
   }
