@@ -1,12 +1,6 @@
 import React from 'react'
 import * as V from 'victory'
-
-const COLORS = {
-  Sales: "#EEC431",
-  Engineering: "#2B94EE",
-  Support: "#9852EB",
-  Total: "#E78C2F"
-}
+import COLORS from '../../assets/colors.js'
 
 const Salary = (d) => {
   const salaries = d.map(em => em.salary)
