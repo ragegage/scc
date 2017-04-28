@@ -39,7 +39,6 @@ class App extends React.Component {
   render() {
     return (
       <div className="react-app">
-        react working
         <Salaries data={this.dataByDept} />
         <Employees data={this.filter(this.dataByDept)} />
         <div className="buttons">
