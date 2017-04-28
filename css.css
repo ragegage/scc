@@ -10,6 +10,14 @@
   justify-content: center;
 }
 
+button {
+  background-color: #eee;
+}
+
+.selected {
+  background-color: #ccc;
+}
+
 svg {
   width: 400px !important;
   height: 300px !important;
