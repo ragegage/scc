@@ -23,6 +23,8 @@ const Salaries = ({ data }) => {
         />
         <V.VictoryAxis />
         <V.VictoryBar
+          labels={(d) => `$${d.y}`}
+          labelComponent={<V.VictoryTooltip dy={-10} pointerLength={0} />}
           style={{
             data: {fill: (d) => COLORS[d.x]}
           }}
