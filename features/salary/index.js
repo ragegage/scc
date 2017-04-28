@@ -9,16 +9,9 @@ const Salary = (d) => {
 }
 
 const Salaries = ({ data }) => {
-  const avgSalaries = Object.keys(data).map(dept => ({dept, salary: Salary(data[dept])}))
-  const totalSalary = {cost: 0, count: 0}
-  avgSalaries.forEach(avg => {
-    totalSalary.cost += avg.salary * data[avg.dept].length
-    totalSalary.count += data[avg.dept].length
-  })
-  const totalAvgSalary = Math.round(totalSalary.cost / totalSalary.count * 100) / 100
-  avgSalaries.unshift({dept: "Total", salary: totalAvgSalary})
-
-  console.log(avgSalaries);
+  const avgSalaries = Object.values(data).map(datum => (
+    {dept: datum.dept, salary: Salary(datum.employees)}
+  ))
 
   return (<div className="salary">
     Average salaries by dept

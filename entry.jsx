@@ -9,6 +9,7 @@ class App extends React.Component {
     super(props)
     this.state = {selected: undefined}
     this.depts = [...new Set(data.map(em => em.dept))]
+    this.dataByDept = App.byDept(data)
   }
 
   changeDept(name) {
@@ -19,29 +20,28 @@ class App extends React.Component {
   }
 
   static byDept(data) {
-    const deptsLists = {}
+    const deptsLists = {Total: {dept: "Total", employees: []}}
     data.forEach(em => {
       if (!deptsLists[em.dept])
-        deptsLists[em.dept] = []
-      deptsLists[em.dept].push(em)
+        deptsLists[em.dept] = {dept: em.dept, employees: []}
+      deptsLists[em.dept].employees.push(em)
+      deptsLists["Total"].employees.push(em)
     })
     return deptsLists
   }
 
   filter(data) {
     if(this.state.selected)
-      return {[this.state.selected]: data[this.state.selected]}
-    return data
+      return data[this.state.selected]
+    return data.Total
   }
 
   render() {
-    const dataByDept = App.byDept(data)
-    console.log(dataByDept);
     return (
       <div className="react-app">
         react working
-        <Salaries data={dataByDept} />
-        <Employees data={this.filter(dataByDept)} />
+        <Salaries data={this.dataByDept} />
+        <Employees data={this.filter(this.dataByDept)} />
         {this.depts.map(dept => (
           <button onClick={this.changeDept(dept)}>{dept}</button>
         ))}
