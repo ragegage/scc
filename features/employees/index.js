@@ -12,8 +12,7 @@ const toYear = (date) => (
   Date.parse(date) / (3.1536 * Math.pow(10, 10)) + 1970
 )
 
-export default ({ data }) => {
-  return (
+export default ({ data }) => (
   <div className="employees">
     # employees vs. time
     <V.VictoryChart>
@@ -24,4 +23,4 @@ export default ({ data }) => {
         />
     </V.VictoryChart>
   </div>
-)}
+)
