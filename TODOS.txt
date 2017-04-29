@@ -1,4 +1,0 @@
-if i have time:
-  - tooltips on employee chart
-  - test util functions?
-  - test the switch from one employee chart to another
